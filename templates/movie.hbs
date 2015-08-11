@@ -1,5 +1,5 @@
 {{#each Movie}}
-<section class="movie-sec">
+<section class="movie-sec" key="{{@key}}">
   <div class="row">
     <div class="col-xs-12">
       <h2>{{Title}} ({{Year}})</h2>
@@ -18,7 +18,8 @@
         <li>{{Name}}</li>
         {{/each}}
       </ul>
-      
+      <input class="form-control" type="range" min="1" max="10" step="1" value="5">
+      <button class="btn default-btn">Unwatched</button>
     </div>
     <div class="col-sm-9">
       <p>{{Plot}}</p>
