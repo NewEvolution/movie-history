@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    
     <title>Nashville Software School</title>
   </head>
   <body>
-    <script data-main="./javascripts/main" src="bower_components/requirejs/require.js"></script>
-  </body>
-</html>
+    <nav>
+      <ul class="nav nav-pills">
+        <li role="presentation"><a href="index.html">View Movie</a></li>
+        <li role="presentation"><a href="add.html">Add Movie</a></li>
+        <li role="presentation"><a href="#">Fight Me irl</a></li>
+      </ul>
+    </nav>
+    
+    <div id="cont" class="container-fluid">
+      <div id="rowEq" class="row row-eq-height">
+        <div id="sideId" class="col-xs-3 side">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+
+            </span>
+            <input type="text" class="form-control" placeholder="Search Movies...">
+            </div><!-- /input-group -->
+            <br>
+            <br>
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Add!</button>
+              </span>
+              <input type="text" class="form-control" placeholder="Add Movies...">
+              </div><!-- /input-group -->
+            </div>
+            <div class="col-xs-9 main">
+              
+            </div>
+          </div>
+          <script data-main="./javascripts/main" src="bower_components/requirejs/require.js"></script>
+          
+        </body>
+        
+        <footer>
+        </footer>
+      </html>

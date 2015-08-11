@@ -1,3 +1,16 @@
+nav {
+  border: 2px solid black; }
 
+.main {
+  border: 2px solid black; }
+
+.side {
+  border: 2px solid black; }
+
+  .row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
 
 /*# sourceMappingURL=main.css.map */
