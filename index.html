@@ -27,7 +27,7 @@
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 
             </span>
-            <input type="text" class="form-control" placeholder="Search Movies...">
+            <input id="search" type="text" class="form-control" placeholder="Search Movies...">
             </div><!-- /input-group -->
             <br>
             <br>
@@ -38,8 +38,8 @@
               <input id="addMovie" type="text" class="form-control" placeholder="Add Movies...">
               </div><!-- /input-group -->
             </div>
-            <div class="col-xs-9 main">
-              
+            <div id="range" class="col-xs-9 main">
+            <input class="form-control rating" type="range" min="1" max="10" step="1" value="5"> 
             </div>
           </div>
           <script data-main="./javascripts/main" src="bower_components/requirejs/require.js"></script>

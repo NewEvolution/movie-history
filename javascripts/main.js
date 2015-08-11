@@ -30,6 +30,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies"],
       newMovie.actors = movie.Actors;
       newMovie.plot = movie.Plot;
       newMovie.poster = movie.Poster;
+      newMovie.watched = false;
       console.log("newMovie", newMovie);
 
       $.ajax ({
@@ -41,7 +42,8 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies"],
        });
     
     };
-    
+
+//Add Movie Button    
   
   $('#addMoviebtn').click(function() {
     console.log("click");
@@ -50,10 +52,38 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies"],
     movies.getMovie(addMovie, show);
   });
   
+//Radio bar for rating the movies
+
+  $("#range").on( "change", ".rating", function(e) {
+    console.log("range changed");
+    var rating = $(".rating").val();
+    console.log(rating);
+  });
+    
+  $('#search').click(function() {
+    console.log("search clicked");
+    var searchMovie = $("#search").val();
+    console.log(searchMovie);
+       
+         
+    var filteredMovies = _.filter(searchMovie, function(movie) {
+      if (movie.title === filteredMovies) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+   console.log(filteredMovies);
+    
+  });
+     
+});     
 
 
 
-});
+
+
+
 
 
 
