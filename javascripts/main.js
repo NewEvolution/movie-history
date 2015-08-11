@@ -33,7 +33,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies"],
       console.log("newMovie", newMovie);
 
       $.ajax ({
-        url: "https://movie-history531.firebaseio.com/Movie",
+        url: "https://movie-history531.firebaseio.com/Movie.json",
          method: "POST", 
          data: JSON.stringify(newMovie)
        }).done(function(NewType) {
@@ -42,11 +42,10 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies"],
     
     };
     
-  //console.log("anything", anything);
-
-  $('#addMovie').click(function() {
+  
+  //$('#addMovie').click(function() {
     movies.getMovie("cloudy with a chance of meatballs", show);
-  });
+  //});
   
 
 
@@ -54,29 +53,4 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies"],
 });
 
 
-// $("#addMovie").click(function() {
-//   //console.log("add songclicked");
-//   var title = $("#newTitle").val();
-//   var year = $("#newYear").val();
-//   var actors = $("#newActor").val();
-//   var plot = $("#newPlot").val();
-  
 
-  
-    
-//   var newMovie = {};
-//   newMovie['title'] = song;
-//   newMovie['song.artist'] = artist;
-//   newMovie['song.album'] = album;
-//   newMovie['song.genre'] = genre;
-//   console.log(newMovie);
-
-
-
-// $.ajax ({
-//         url: "https://movie-history531.firebaseio.com/",
-//         method: "POST", 
-//         data: JSON.stringify(newSong)
-//       }).done(function(NewType) {
-//         console.log("New Song");
-//       });
