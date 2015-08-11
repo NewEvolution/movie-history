@@ -44,7 +44,6 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies"],
     
   
   //$('#addMovie').click(function() {
-    movies.getMovie("cloudy with a chance of meatballs", show);
   //});
   
 

@@ -1,11 +1,14 @@
 nav {
-	border: 2px solid black;
-}
+  border: 2px solid black; }
 
-.col-xs-10 main {
-	border: 2px solid black;
-}
+.main {
+  border: 2px solid black; }
 
-col-xs-2 side {
-	border: 2px solid black;
-}
+.side {
+  border: 2px solid black; }
+
+  .row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
