@@ -24,31 +24,34 @@
           <div class="input-group">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
             </span>
-            <input type="text" class="form-control" placeholder="Search Movies...">
-            </div><!-- /input-group -->
-            <br>
-            <br>
-            <div class="input-group">
-              <span class="input-group-btn">
-                <button class="btn btn-default" id="addMovie" type="button">Add!</button>
-              </span>
-              <input type="text" class="form-control" placeholder="Add Movies...">
-              </div><!-- /input-group -->
+            <input id="search" type="text" class="form-control" placeholder="Search Movies...">
+          </div><!-- /input-group -->
+          <br>
+          <br>
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" id="addMoviebtn" type="button">Add!</button>
+            </span>
+            <input id="addMovie" type="text" class="form-control" placeholder="Add Movies...">
+          </div><!-- /input-group -->
+        </div>
+        <div class="col-xs-9 main">
+          <button id=\"rmv\">Remove</button>
+          <div class="btn-group" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-danger">Watched</button>
             </div>
-            <div class="col-xs-9 main">
-            <button id=\"rmv\">Remove</button>
-            <div class="btn-group" role="group" aria-label="...">
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-danger">Watched</button>
-  </div></div>
           </div>
         </div>
-        <script data-main="./javascripts/main" src="bower_components/requirejs/require.js"></script>
-        
-      </body>
-      
-      <footer>
-      </footer>
-    </html>
+      </div>
+    </div>
+    <script data-main="./javascripts/main" src="bower_components/requirejs/require.js"></script>
+    
+  </body>
+  
+  <footer>
+  </footer>
+</html>
