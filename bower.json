@@ -1,0 +1,23 @@
+{
+  "name": "movie-history",
+  "version": "0.0.0",
+  "authors": [
+    "Ryan Tanay <ryantanay@newevolution.org>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "require-handlebars-plugin": "~0.11.3",
+    "requirejs": "~2.1.20",
+    "lodash": "~3.10.1",
+    "firebase": "~2.2.9"
+  }
+}
