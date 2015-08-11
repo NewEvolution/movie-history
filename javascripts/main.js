@@ -31,11 +31,13 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     for(var key in retrievedMoviesObj) {
       retrievedMoviesArr[retrievedMoviesArr.length] = retrievedMoviesObj[key]; // Turn JSON object into array
     }
-    var actorArray = [];
     console.log("retrievedMoviesObj", retrievedMoviesObj);
-    console.log("actorList", actorList);
-    // actorArray = actorList.split(", ");
-    // console.log("actorArray", actorArray);
+    console.log("retrievedMoviesArr", retrievedMoviesArr);
+    for(var i=0; i<retrievedMoviesArr.length; i++) {
+      retrievedMoviesArr[i].actors = retrievedMoviesArr[i].actors.split(", ");
+    }
+    console.log("mutated retrievedMoviesArr", retrievedMoviesArr);
+    $(".main").html(template.movie({Movie:retrievedMoviesArr}));
   });
   var show = function(showMovie) {
     movie = showMovie;
