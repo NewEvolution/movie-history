@@ -1,0 +1,28 @@
+{{#each Movie}}
+<section class="movie-sec" key="{{@key}}">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>{{Title}} ({{Year}})</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      {{#if Poster}}
+      <img url="{{Poster}}" alt="{{Title}} Poster">
+      {{else}}
+      <img url="../images/no-image-found.jpg" alt="{{Title}} Poster">
+      {{/if}}
+      <h4>Leading Actors</h4>
+      <ul>
+        {{#each Actor}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      <input class="form-control" type="range" min="1" max="10" step="1" value="5">
+      <button class="btn default-btn">Unwatched</button>
+    </div>
+    <div class="col-sm-9">
+      <p>{{Plot}}</p>
+    </div>
+</section>  
+{{/each}}
