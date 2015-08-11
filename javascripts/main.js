@@ -17,8 +17,8 @@ requirejs.config({
 });
 
 // The main function requiring all our anciliary scripts
-requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies"], 
-  function($, _, _firebase, Handlebars, bootstrap, movies){
+requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "templates"], 
+  function($, _, _firebase, Handlebars, bootstrap, movies, template){
     var movie = {};
     var newMovie = {};
     var show = function(showMovie) {
