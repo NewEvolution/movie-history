@@ -1,8 +1,8 @@
-{{#each movie}}
+{{#each Movie}}
 <section class="movie-sec">
   <div class="row">
     <div class="col-xs-12">
-      <h2>{{Title}}</h2>
+      <h2>{{Title}} ({{Year}})</h2>
     </div>
   </div>
   <div class="row">
@@ -10,11 +10,18 @@
       {{#if Poster}}
       <img url="{{Poster}}" alt="{{Title}} Poster">
       {{else}}
-      <img url="/images/" alt="{{Title}} Poster">
+      <img url="../images/no-image-found.jpg" alt="{{Title}} Poster">
       {{/if}}
+      <h4>Leading Actors</h4>
+      <ul>
+        {{#each Actor}}
+        <li>{{Name}}</li>
+        {{/each}}
+      </ul>
+      
     </div>
     <div class="col-sm-9">
-
+      <p>{{Plot}}</p>
     </div>
 </section>  
 {{/each}}
