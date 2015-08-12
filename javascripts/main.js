@@ -26,12 +26,11 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   var newMovie = {};
   myFirebaseRef.child("Movie").on("value", function(snapshot) {
     retrievedMoviesObj = snapshot.val();
-    console.log("retrievedMoviesObj", retrievedMoviesObj);
-    for(var key in retrievedMoviesObj) {
-      retrievedMoviesObj[key].actors = retrievedMoviesObj[key].actors.split(", ");
+    actorArrayMoviesObj = retrievedMoviesObj;
+    for(var key in actorArrayMoviesObj) {
+      actorArrayMoviesObj[key].actors = actorArrayMoviesObj[key].actors.split(", ");
     }
-    console.log("mutated retrievedMoviesObj", retrievedMoviesObj);
-    $(".main").html(template.movie({Movie:retrievedMoviesObj}));
+    $(".main").html(template.movie({Movie:actorArrayMoviesObj}));
   });
   var show = function(showMovie) {
     movie = showMovie;
@@ -76,11 +75,10 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
 
   $("#range").on( "change", ".rating", function(e) {
     var movieKey = $(this).parents(".movie-sec").attr("key");
-    var newRating = retrievedMoviesObj[movieKey];
-    newRating.actors = newRating.actors.join(", ");
-    newRating.rating = $(this).val();
+    var movieWithNewRating = retrievedMoviesObj[movieKey];
+    movieWithNewRating.rating = $(this).val();
     console.log("movieKey", movieKey);
-    myFirebaseRef.child("Movie").child(movieKey).set(newRating);
+    myFirebaseRef.child("Movie").child(movieKey).set(movieWithNewRating);
   });
     
   $('#search').click(function() {
