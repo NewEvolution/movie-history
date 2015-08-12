@@ -114,7 +114,8 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     console.log("search Movie", searchMovie);
     console.log("firebase obj",retrievedMoviesObj);
 
-    var filteredMovies = _.filter(retrievedMoviesObj, function(movie) {
+    var filteredMovies = {};
+    filteredMovies = _.filter(retrievedMoviesObj, function(movie) {
       if (movie.title === searchMovie || movie.year === searchMovie) {
         return true;
       } else {
@@ -122,8 +123,11 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
       }
     });  
 
+    for(var key in filteredMovies) {
+      filteredMovies[key].actors = filteredMovies[key].actors.split(", ");
+    }
     console.log("filter", filteredMovies);
-    //$(".main").html(template.movie(filteredMovies));
+    $(".main").html(template.movie({Movie:filteredMovies}));
     
   });
 
