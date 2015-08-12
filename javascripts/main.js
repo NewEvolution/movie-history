@@ -26,11 +26,29 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   var newMovie = {};
   myFirebaseRef.child("Movie").on("value", function(snapshot) {
     retrievedMoviesObj = snapshot.val();
-    actorArrayMoviesObj = retrievedMoviesObj;
+    actorArrayMoviesObj = snapshot.val();
     for(var key in actorArrayMoviesObj) {
       actorArrayMoviesObj[key].actors = actorArrayMoviesObj[key].actors.split(", ");
     }
     $(".main").html(template.movie({Movie:actorArrayMoviesObj}));
+    var allMovies = $(".movie-sec");
+    for(var i=0; i<allMovies.length; i++) {
+      var thisMovieKey = $(allMovies[i]).attr("key");
+      console.log("thisMovieKey", thisMovieKey);
+      var isWatched = retrievedMoviesObj[thisMovieKey].watched;
+      console.log("isWatched", isWatched);
+      var $thisMovieWatchButton = $(allMovies[i]).find(".watchToggle");
+      console.log("$thisMovieWatchButton", $thisMovieWatchButton);
+      if(isWatched) {
+        $thisMovieWatchButton.html("Watched");
+        $thisMovieWatchButton.removeClass("btn-danger");
+        $thisMovieWatchButton.addClass("btn-success");
+      } else {
+        $thisMovieWatchButton.html("Unwatched");
+        $thisMovieWatchButton.removeClass("btn-success");
+        $thisMovieWatchButton.addClass("btn-danger");
+      }
+    }
   });
   var show = function(showMovie) {
     movie = showMovie;
@@ -42,6 +60,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     newMovie.plot = movie.Plot;
     newMovie.poster = movie.Poster;
     newMovie.rating = 5;
+    newMovie.watched = false;
     console.log("newMovie", newMovie);
 
     $.ajax ({
@@ -77,7 +96,6 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     var movieKey = $(this).parents(".movie-sec").attr("key");
     var movieWithNewRating = retrievedMoviesObj[movieKey];
     movieWithNewRating.rating = $(this).val();
-    console.log("movieKey", movieKey);
     myFirebaseRef.child("Movie").child(movieKey).set(movieWithNewRating);
   });
     
@@ -111,9 +129,15 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
 
 // Toggleclass button for watched/unwatched movies
   $(document).on("click", ".watchToggle", function(e) {
-    console.log("confirm classtoggle");
     e.preventDefault();
-    $(this).toggleClass("btn-success btn-danger");
+    var movieKey = $(this).parents(".movie-sec").attr("key");
+    var movieWithNewWatched = retrievedMoviesObj[movieKey];
+    if(movieWithNewWatched.watched) {
+      movieWithNewWatched.watched = false;
+    } else {
+      movieWithNewWatched.watched = true;
+    }
+    myFirebaseRef.child("Movie").child(movieKey).set(movieWithNewWatched);
   }); 
     
      
