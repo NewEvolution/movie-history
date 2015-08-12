@@ -99,7 +99,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     console.log("firebase obj",retrievedMoviesObj);
 
     var filteredMovies = _.filter(retrievedMoviesObj, function(movie) {
-      if (movie.title === searchMovie) {
+      if (movie.title === searchMovie || movie.year === searchMovie) {
         return true;
       } else {
         return false;
@@ -107,6 +107,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     });  
 
     console.log("filter", filteredMovies);
+    //$(".main").html(template.movie(filteredMovies));
     
   });
 
