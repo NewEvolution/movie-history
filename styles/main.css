@@ -1,10 +1,16 @@
 nav {
   border: 2px solid black; }
 
-.col-xs-10 main {
+.main {
   border: 2px solid black; }
 
-col-xs-2 side {
+.side {
   border: 2px solid black; }
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
 
 /*# sourceMappingURL=main.css.map */
