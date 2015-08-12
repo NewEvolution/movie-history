@@ -18,10 +18,5 @@ define(["jquery"], function($) {
 
   };
 
-  // $(document).on("click", "#rmv", function() {
-  //   $(this).parent().remove();
-  //   console.log("CLICKED MOTHERFUCKER")
-  // });
-
 });
 

@@ -64,7 +64,14 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     $("#addMovie").val("");
     movies.getMovie(addMovie, show);
   });
-  
+
+  // Remove Movie Button (Not Firebase)
+
+    $(document).on("click", ".rmv", function() {
+    $(this).parent().remove();
+    console.log("confirmed remove button working");
+  });
+
 //Radio bar for rating the movies
 
   $("#range").on( "change", ".rating", function(e) {
@@ -76,7 +83,6 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     myFirebaseRef.child("Movie").child(movieKey).set(newRating);
   });
     
-  
   $('#search').click(function() {
     console.log("search clicked");
     console.log("retrievedMoviesObj before", retrievedMoviesObj);
@@ -92,7 +98,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     
     var filteredMovies = [];     
     filteredMovies = _.result(_.find(retrievedMoviesObj));
-      return _.matches;
+    //  return _.matches;
      
       
       // if (retrievedMoviesObj.title === filteredMovies) {
@@ -101,8 +107,30 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
       //   return false;
     
       // }
-    
+
     console.log("filter", filteredMovies);
   });
+
+// Toggleclass button for watched/unwatched movies
+  $(document).on("click", ".watchToggle", function(e) {
+    console.log("confirm classtoggle");
+    e.preventDefault();
+    $(this).toggleClass("btn-success btn-danger");
+  }); 
+    
      
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
