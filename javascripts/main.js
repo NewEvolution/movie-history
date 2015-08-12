@@ -48,6 +48,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     newMovie.actors = movie.Actors;
     newMovie.plot = movie.Plot;
     newMovie.poster = movie.Poster;
+    newMovie.rating = 5;
     console.log("newMovie", newMovie);
 
     $.ajax ({
@@ -73,13 +74,14 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
 
   $("#range").on( "change", ".rating", function(e) {
     console.log("range changed");
-    var rating = $(".rating").val();
+    var rating = $(this).val();
     console.log(rating);
   });
     
+  
   $('#search').click(function() {
     console.log("search clicked");
-    var searchMovie = $("#search").val();
+    var searchMovie = $("#search").val().split(' ');
     console.log(searchMovie);
        
          
@@ -90,7 +92,7 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
         return false;
       }
     });
-   console.log(filteredMovies);
+   console.log("filter", filteredMovies);
     
   });
      
