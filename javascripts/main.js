@@ -100,22 +100,16 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   });
     
   $('#search').click(function() {
-    console.log("search clicked");
-    console.log("retrievedMoviesObj before", retrievedMoviesObj);
-    var movieArray = [];
-    console.log("movie array", movieArray);
-
-    for (var key in retrievedMoviesObj) {
-      movieArray[movieArray.length] = retrievedMoviesObj[key];
-     }   
-    console.log("movie array", movieArray);
+    
     
     var searchMovie = $('#searchText').val();
+    $('#searchText').val("");
+
     console.log("search Movie", searchMovie);
     console.log("firebase obj",retrievedMoviesObj);
 
     var filteredMovies = {};
-    filteredMovies = _.filter(retrievedMoviesObj, function(movie) {
+    filteredMovies = _.findKey(actorArrayMoviesObj, function(movie) {
       if (movie.title === searchMovie || movie.year === searchMovie) {
         return true;
       } else {
@@ -123,11 +117,12 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
       }
     });  
 
-    for(var key in filteredMovies) {
-      filteredMovies[key].actors = filteredMovies[key].actors.split(", ");
-    }
+    
     console.log("filter", filteredMovies);
-    $(".main").html(template.movie({Movie:filteredMovies}));
+    console.log("actorArrayMoviesObj.filteredMovies", actorArrayMoviesObj[filteredMovies]);
+    var finalFilteredMovie = {};
+    finalFilteredMovie[filteredMovies] = actorArrayMoviesObj[filteredMovies];
+    $(".main").html(template.movie({Movie:finalFilteredMovie}));
     
   });
 
@@ -135,7 +130,11 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   $(document).on("click", ".watchToggle", function(e) {
     e.preventDefault();
     var movieKey = $(this).parents(".movie-sec").attr("key");
+    console.log("movieKey",movieKey);
     var movieWithNewWatched = retrievedMoviesObj[movieKey];
+
+    console.log("movieWithNewWatched",movieWithNewWatched);
+
     if(movieWithNewWatched.watched) {
       movieWithNewWatched.watched = false;
     } else {
