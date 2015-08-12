@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       },
       sassy: {
         files: ['./sass/**/*.scss'],
-        task: ['sass']
+        tasks: ['sass']
       }
     }
   });

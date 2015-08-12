@@ -12,17 +12,17 @@
       {{else}}
       <img src="../images/no-image-found.jpg" alt="{{title}} Poster">
       {{/if}}
-      <h4>Leading Actors</h4>
-      <ul>
-        {{#each actor}}
-        <li>{{this}}</li>
-        {{/each}}
-      </ul>
       <input class="form-control" type="range" min="1" max="10" step="1" value="5">
       <button class="btn default-btn">Unwatched</button>
     </div>
     <div class="col-sm-9">
       <p>{{plot}}</p>
+      <h4>Leading Actors</h4>
+      <ul>
+        {{#each actors}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
     </div>
 </section>  
 {{/each}}
