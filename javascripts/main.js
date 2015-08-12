@@ -22,22 +22,16 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   function($, _, _firebase, Handlebars, bootstrap, movies, template){
   var myFirebaseRef = new Firebase("https://movie-history531.firebaseio.com/");
   var retrievedMoviesObj = {};
-  var retrievedMoviesArr = [];
   var movie = {};
   var newMovie = {};
   myFirebaseRef.child("Movie").on("value", function(snapshot) {
     retrievedMoviesObj = snapshot.val();
-    retrievedMoviesArr = [];
-    for(var key in retrievedMoviesObj) {
-      retrievedMoviesArr[retrievedMoviesArr.length] = retrievedMoviesObj[key]; // Turn JSON object into array
-    }
     console.log("retrievedMoviesObj", retrievedMoviesObj);
-    console.log("retrievedMoviesArr", retrievedMoviesArr);
-    for(var i=0; i<retrievedMoviesArr.length; i++) {
-      retrievedMoviesArr[i].actors = retrievedMoviesArr[i].actors.split(", ");
+    for(var key in retrievedMoviesObj) {
+      retrievedMoviesObj[key].actors = retrievedMoviesObj[key].actors.split(", ");
     }
-    console.log("mutated retrievedMoviesArr", retrievedMoviesArr);
-    $(".main").html(template.movie({Movie:retrievedMoviesArr}));
+    console.log("mutated retrievedMoviesObj", retrievedMoviesObj);
+    $(".main").html(template.movie({Movie:retrievedMoviesObj}));
   });
   var show = function(showMovie) {
     movie = showMovie;
