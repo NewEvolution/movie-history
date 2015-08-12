@@ -86,29 +86,28 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   $('#search').click(function() {
     console.log("search clicked");
     console.log("retrievedMoviesObj before", retrievedMoviesObj);
-    // var movieArray = [];
+    var movieArray = [];
+    console.log("movie array", movieArray);
 
-    // for (var key in retrievedMoviesObj) {
-    //   movieArray[movieArray.length] = retrievedMoviesObj[key];
-    // }   
-    // console.log("movie array", movieArray);
+    for (var key in retrievedMoviesObj) {
+      movieArray[movieArray.length] = retrievedMoviesObj[key];
+     }   
+    console.log("movie array", movieArray);
     
-    // var searchMovie = $("#search").val().split(movie);
-    // console.log("search Move", searchMovie);
-    
-    var filteredMovies = [];     
-    filteredMovies = _.result(_.find(retrievedMoviesObj));
-    //  return _.matches;
-     
-      
-      // if (retrievedMoviesObj.title === filteredMovies) {
-      //   return true;
-      // } else {
-      //   return false;
-    
-      // }
+    var searchMovie = $('#searchText').val();
+    console.log("search Movie", searchMovie);
+    console.log("firebase obj",retrievedMoviesObj);
+
+    var filteredMovies = _.filter(retrievedMoviesObj, function(movie) {
+      if (movie.title === searchMovie) {
+        return true;
+      } else {
+        return false;
+      }
+    });  
 
     console.log("filter", filteredMovies);
+    
   });
 
 // Toggleclass button for watched/unwatched movies
