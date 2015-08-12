@@ -75,19 +75,30 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
   
   $('#search').click(function() {
     console.log("search clicked");
-    var searchMovie = $("#search").val().split(' ');
-    console.log(searchMovie);
-       
-         
-    var filteredMovies = _.filter(searchMovie, function(movie) {
-      if (movie.title === filteredMovies) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-   console.log("filter", filteredMovies);
+    console.log("retrievedMoviesObj before", retrievedMoviesObj);
+    // var movieArray = [];
+
+    // for (var key in retrievedMoviesObj) {
+    //   movieArray[movieArray.length] = retrievedMoviesObj[key];
+    // }   
+    // console.log("movie array", movieArray);
     
+    // var searchMovie = $("#search").val().split(movie);
+    // console.log("search Move", searchMovie);
+    
+    var filteredMovies = [];     
+    filteredMovies = _.result(_.find(retrievedMoviesObj));
+      return _.matches;
+     
+      
+      // if (retrievedMoviesObj.title === filteredMovies) {
+      //   return true;
+      // } else {
+      //   return false;
+    
+      // }
+    
+    console.log("filter", filteredMovies);
   });
      
 });
