@@ -61,15 +61,19 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     console.log("click");
     var addMovie = $("#addMovie").val();
     console.log("addMovie", addMovie);
+    $("#addMovie").val("");
     movies.getMovie(addMovie, show);
   });
   
 //Radio bar for rating the movies
 
   $("#range").on( "change", ".rating", function(e) {
-    console.log("range changed");
-    var rating = $(this).val();
-    console.log(rating);
+    var movieKey = $(this).parents(".movie-sec").attr("key");
+    var newRating = retrievedMoviesObj[movieKey];
+    newRating.actors = newRating.actors.join(", ");
+    newRating.rating = $(this).val();
+    console.log("movieKey", movieKey);
+    myFirebaseRef.child("Movie").child(movieKey).set(newRating);
   });
     
   
