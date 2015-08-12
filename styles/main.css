@@ -1,11 +1,19 @@
 nav {
-  border: 2px solid black; }
+  border: 2px dotted goldenrod;
+  color: white; }
+
+a {
+  font-size: 2em;
+  background-color: black;
+  color: white; }
 
 .main {
-  border: 2px solid black; }
+  border: 2px dotted goldenrod;
+  background-color: rbga(0, 0, 0, 0); }
 
 .side {
-  border: 2px solid black; }
+  border: 2px dotted goldenrod;
+  background-color: rbga(0, 0, 0, 0); }
 
 .row-eq-height {
   display: -webkit-box;
@@ -17,5 +25,18 @@ img {
   width: 100%;
   height: 100%;
   max-width: 400px; }
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background: url("../images/background.jpg") no-repeat center center fixed;
+  background-blend-mode: overlay;
+  background-size: cover; }
+
+div {
+  color: white;
+  font-size: 1.15em !important; }
+
+.rmv {
+  color: black; }
 
 /*# sourceMappingURL=main.css.map */
