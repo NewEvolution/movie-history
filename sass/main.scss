@@ -12,3 +12,10 @@ nav {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
+
+ 	body {
+  font: 100% Helvetica, sans-serif;
+  background: url("images/background2.jpg");
+  background-blend-mode: overlay;
+  background-size: cover;
+  }

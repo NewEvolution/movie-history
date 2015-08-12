@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         tasks: ['jshint']
       },
       sassy: {
-        files: ['./sass/**/*.js'],
+        files: ['./sass/**/*.scss'],
         tasks: ['sass']
       }
     }
