@@ -83,14 +83,14 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "getMovies", "tem
     movies.getMovie(addMovie, show);
   });
 
-  // Remove Movie Button (Not Firebase)
+  // Delete Movie Button (From Firebase)
 
-  $(document).on("click", ".rmv", function() {
+  $(document).on("click", ".del", function() {
     var movieKey = $(this).parents(".movie-sec").attr("key");
     myFirebaseRef.child("Movie").child(movieKey).set(null);
   });
 
-  // Delete Movie Button (From Firebase)
+  // Remove Movie Button (Not Firebase)
 
   $(document).on("click", ".rmv", function() {
     $(this).parent().remove();
