@@ -35,13 +35,18 @@ img {
 body {
   font: 100% Helvetica, sans-serif;
   background: rgb(93,8,6) url("../images/background.jpg") no-repeat center center fixed;
-  background-size: cover; }
+  background-size: cover;
+}
 
-  div {
-    color: white;
-    font-size: 1.15em !important;
-  }
+div {
+  color: white;
+  font-size: 1.15em !important;
+}
 
-  .input-group {
-    margin-top: 40px !important;
-  }
+.form-control {
+  margin: 10px 0 !important;
+}
+
+.input-group {
+  margin-top: 40px !important;
+}

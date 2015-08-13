@@ -35,6 +35,9 @@ div {
   color: white;
   font-size: 1.15em !important; }
 
+.form-control {
+  margin: 10px 0 !important; }
+
 .input-group {
   margin-top: 40px !important; }
 
