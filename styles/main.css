@@ -35,7 +35,8 @@ div {
   color: white;
   font-size: 1.15em !important; }
 
-.rmv {
+.rmv,
+.del {
   color: black; }
 
 .input-group {
