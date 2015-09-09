@@ -16,6 +16,8 @@ Makes use of Firebase https://www.firebase.com/ for data storage.
  - make note of the port number returned after running _http-server_
 - navigate to http://localhost:[your-port-number]
 
+###Usage:
+
 Search filters the list of movies, add adds the movie with the provided title to the database.
 
 Watched/Unwatched button toggles between the two states.
